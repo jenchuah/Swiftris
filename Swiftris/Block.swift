@@ -5,6 +5,7 @@
 //  Created by Jen Min Chuah on 3/02/2015.
 //  Copyright (c) 2015 Lovely Birds. All rights reserved.
 //
+//  Block class. Each block has a color, column, row, and sprite. Multiple blocks make up a shape.
 
 import SpriteKit
 

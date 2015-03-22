@@ -27,6 +27,14 @@
 		DC10B39C1A7CF74F0013B7FC /* whitebg.png in Resources */ = {isa = PBXBuildFile; fileRef = DC10B3961A7CF74F0013B7FC /* whitebg.png */; };
 		DC10B39D1A7CF74F0013B7FC /* whitebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC10B3971A7CF74F0013B7FC /* whitebg@2x.png */; };
 		DC10B39F1A7CFD270013B7FC /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC10B39E1A7CFD270013B7FC /* Array2D.swift */; };
+		DC627A411A9C03EE005FBC46 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC627A401A9C03EE005FBC46 /* SquareShape.swift */; };
+		DC627A431A9C0747005FBC46 /* TShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC627A421A9C0747005FBC46 /* TShape.swift */; };
+		DC627A451A9C088D005FBC46 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC627A441A9C088D005FBC46 /* LineShape.swift */; };
+		DC627A471A9C089C005FBC46 /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC627A461A9C089C005FBC46 /* SShape.swift */; };
+		DC627A491A9C08A1005FBC46 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC627A481A9C08A1005FBC46 /* ZShape.swift */; };
+		DC627A4B1A9C08AC005FBC46 /* LShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC627A4A1A9C08AC005FBC46 /* LShape.swift */; };
+		DC627A4D1A9C08B1005FBC46 /* JShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC627A4C1A9C08B1005FBC46 /* JShape.swift */; };
+		DC70D6241AB3157A002E669A /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC70D6231AB3157A002E669A /* Swiftris.swift */; };
 		DC88BB851A8393FE00CBC625 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC88BB841A8393FE00CBC625 /* Shape.swift */; };
 		DCD227511A80E2A80016B143 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD227501A80E2A80016B143 /* Block.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +74,14 @@
 		DC10B3961A7CF74F0013B7FC /* whitebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitebg.png; sourceTree = "<group>"; };
 		DC10B3971A7CF74F0013B7FC /* whitebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whitebg@2x.png"; sourceTree = "<group>"; };
 		DC10B39E1A7CFD270013B7FC /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		DC627A401A9C03EE005FBC46 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
+		DC627A421A9C0747005FBC46 /* TShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TShape.swift; sourceTree = "<group>"; };
+		DC627A441A9C088D005FBC46 /* LineShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		DC627A461A9C089C005FBC46 /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
+		DC627A481A9C08A1005FBC46 /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
+		DC627A4A1A9C08AC005FBC46 /* LShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LShape.swift; sourceTree = "<group>"; };
+		DC627A4C1A9C08B1005FBC46 /* JShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JShape.swift; sourceTree = "<group>"; };
+		DC70D6231AB3157A002E669A /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
 		DC88BB841A8393FE00CBC625 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		DCD227501A80E2A80016B143 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +129,14 @@
 				DC10B3651A7CF55D0013B7FC /* GameScene.swift */,
 				DCD227501A80E2A80016B143 /* Block.swift */,
 				DC88BB841A8393FE00CBC625 /* Shape.swift */,
+				DC70D6231AB3157A002E669A /* Swiftris.swift */,
+				DC627A401A9C03EE005FBC46 /* SquareShape.swift */,
+				DC627A421A9C0747005FBC46 /* TShape.swift */,
+				DC627A441A9C088D005FBC46 /* LineShape.swift */,
+				DC627A461A9C089C005FBC46 /* SShape.swift */,
+				DC627A481A9C08A1005FBC46 /* ZShape.swift */,
+				DC627A4A1A9C08AC005FBC46 /* LShape.swift */,
+				DC627A4C1A9C08B1005FBC46 /* JShape.swift */,
 				DC10B3671A7CF55D0013B7FC /* GameViewController.swift */,
 				DC10B39E1A7CFD270013B7FC /* Array2D.swift */,
 				DC10B3691A7CF55D0013B7FC /* Main.storyboard */,
@@ -280,11 +304,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC627A411A9C03EE005FBC46 /* SquareShape.swift in Sources */,
 				DC10B3661A7CF55D0013B7FC /* GameScene.swift in Sources */,
 				DC88BB851A8393FE00CBC625 /* Shape.swift in Sources */,
 				DC10B39F1A7CFD270013B7FC /* Array2D.swift in Sources */,
+				DC70D6241AB3157A002E669A /* Swiftris.swift in Sources */,
+				DC627A451A9C088D005FBC46 /* LineShape.swift in Sources */,
+				DC627A471A9C089C005FBC46 /* SShape.swift in Sources */,
+				DC627A431A9C0747005FBC46 /* TShape.swift in Sources */,
 				DCD227511A80E2A80016B143 /* Block.swift in Sources */,
+				DC627A4B1A9C08AC005FBC46 /* LShape.swift in Sources */,
+				DC627A491A9C08A1005FBC46 /* ZShape.swift in Sources */,
 				DC10B3681A7CF55D0013B7FC /* GameViewController.swift in Sources */,
+				DC627A4D1A9C08B1005FBC46 /* JShape.swift in Sources */,
 				DC10B3621A7CF55D0013B7FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +443,7 @@
 				INFOPLIST_FILE = Swiftris/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -421,6 +454,7 @@
 				INFOPLIST_FILE = Swiftris/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
