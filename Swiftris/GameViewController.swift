@@ -16,6 +16,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var swiftris: Swiftris!
     var panPointReference:CGPoint?
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    
     @IBAction func didTap(sender: UITapGestureRecognizer) {
         swiftris.rotateShape()
     }
@@ -48,12 +51,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         swiftris.dropShape()
     }
     
-    // #1 Optional delegate method found in UIGestureRecognizerDelegate which will allow each gesture recognizer to work in tandem with others. However, at times a gesture recognizer may collide with another.
+    // Optional delegate method found in UIGestureRecognizerDelegate which will allow each gesture recognizer to work in tandem with others. However, at times a gesture recognizer may collide with another.
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
         return true
     }
     
-    // #2 If pan gesture occur simultaneously with a swipe down gesture, to relinquish priority, thsi code performs several optional cast conditionals. These if conditionals attempt to cast the generic UIGestureRecognizer parameters as the specific types of recognizers we expect to be notified of. If the cast succeeds, the code block is executed.
+    // If pan gesture occur simultaneously with a swipe down gesture, to relinquish priority, thsi code performs several optional cast conditionals. These if conditionals attempt to cast the generic UIGestureRecognizer parameters as the specific types of recognizers we expect to be notified of. If the cast succeeds, the code block is executed.
     // We let the pan gesture recognizer take precedence over the swipe gesture and the tap to do likewise over the pan. 
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
         if let swipeRec = gestureRecognizer as? UISwipeGestureRecognizer {
@@ -123,6 +126,10 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     func gameDidBegin(swiftris: Swiftris) {
+        levelLabel.text = "\(swiftris.level)"
+        scoreLabel.text = "\(swiftris.score)"
+        scene.tickLengthMillis = TickLengthLevelOne
+        
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
             scene.addPreviewShapeToScene(swiftris.nextShape!) {
@@ -137,10 +144,21 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func gameDidEnd(swiftris: Swiftris) {
         view.userInteractionEnabled = false
         scene.stopTicking()
+        scene.playSound("gameover.mp3")
+        scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
+            swiftris.beginGame()
+        }
     }
     
+    // Make game faster as it progresses, eventually topping off at 50 milliseconds between ticks
     func gameDidLevelUp(swiftris: Swiftris) {
-        
+        levelLabel.text = "\(swiftris.level)"
+        if scene.tickLengthMillis >= 100 {
+            scene.tickLengthMillis -= 100
+        } else if scene.tickLengthMillis > 50 {
+            scene.tickLengthMillis -= 50
+        }
+        scene.playSound("levelup.mp3")
     }
     
     func gameShapeDidDrop(swiftris: Swiftris) {
@@ -152,7 +170,20 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     func gameShapeDidLand(swiftris: Swiftris) {
         scene.stopTicking()
-        nextShape()
+        self.view.userInteractionEnabled = false
+        
+        // If any lines are removed, we update the score label and show the newest score and then animate the blocks with explosive new animation function
+        let removedLines = swiftris.removeCompletedLines()
+        if removedLines.linesRemoved.count > 0 {
+            self.scoreLabel.text = "\(swiftris.score)"
+            scene.animateCollapsingLines(removedLines.linesRemoved, fallenBlocks: removedLines.fallenBlocks) {
+                // May form brand new lines when blocks have fallen to new location, recurse
+                self.gameShapeDidLand(swiftris)
+            }
+            scene.playSound("bomb.mp3")
+        } else {
+            nextShape()
+        }
     }
     
     func gameShapeDidMove(swiftris: Swiftris) {

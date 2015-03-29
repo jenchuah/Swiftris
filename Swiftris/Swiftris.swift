@@ -134,13 +134,13 @@ class Swiftris {
         return allBlocks
     }
     
-    //#1 Function returns tuple of two arrays - linesRemoved maintains each row of blocks which the user has filled in completely
+    // Function returns tuple of two arrays - linesRemoved maintains each row of blocks which the user has filled in completely
     func removeCompletedLines() -> (linesRemoved: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>) {
         var removedLines = Array<Array<Block>>()
         for var row = NumRows - 1 ; row > 0; row-- {
             var rowOfBlocks = Array<Block>()
             
-            //#2 Iterates columns 0-9 to add every block in a given row to rowOfBlocks. If it ends up with a full set (10 blocks in total), it counts that as a removed line and adds it to the return variable.
+            // Iterates columns 0-9 to add every block in a given row to rowOfBlocks. If it ends up with a full set (10 blocks in total), it counts that as a removed line and adds it to the return variable.
             for column in 0..<NumColumns {
                 if let block = blockArray[column, row] {
                     rowOfBlocks.append(block)
@@ -154,12 +154,12 @@ class Swiftris {
             }
         }
         
-        //#3 If no completed lines at all, return empty arrays immediately
+        // If no completed lines at all, return empty arrays immediately
         if removedLines.count == 0 {
             return ([],[])
         }
         
-        //#4 Level up if points exceed their level * 1000
+        // Level up if points exceed their level * 1000
         let pointsEarned = removedLines.count * PointsPerLine * level
         score += pointsEarned
         if score >= level * LevelThreshold {
@@ -171,7 +171,7 @@ class Swiftris {
         for column in 0..<NumColumns {
             var fallenBlocksArray = Array<Block>()
             
-            //#5 Starting in the left-most column and immediately above the bottom-most removed line, we count upwards towards the top of the game board. As we do so, we take each remaining block we find on the game board and lower it as far as possible. fallenBlocks is an array of arrays, each sub-array is filled with blocks that fell to a new position as a result of the user clearing lines beneath them.
+            // Starting in the left-most column and immediately above the bottom-most removed line, we count upwards towards the top of the game board. As we do so, we take each remaining block we find on the game board and lower it as far as possible. fallenBlocks is an array of arrays, each sub-array is filled with blocks that fell to a new position as a result of the user clearing lines beneath them.
             for var row = removedLines[0][0].row - 1; row > 0; row-- {
                 if let block = blockArray[column, row]{
                     var newRow = row
